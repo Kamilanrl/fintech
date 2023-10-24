@@ -10,7 +10,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="fs-5 fw-bold">Selamat Datang {{ Auth::user()->name }} di AppShop</div>
+        <div class="fs-5 fw-bold">Hai {{ Auth::user()->name }}</div>
         @if (session('status') )
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
@@ -23,10 +23,10 @@
                     <div class="row">
                         <div class="col">
                             <div class="card">
-                                <div class="card-header fs-5">
+                                <div class="card-header bg-primary text-white fw-bold fs-5">
                                     Saldo
                                 </div>
-                                <div class="card-body" style="font-size: 15px">
+                                <div class="card-body">
                                     {{ rupiah($saldo) }}
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="card">
-                                <div class="card-header fs-5">
+                                <div class="card-header bg-primary text-white fw-bold fs-5">
                                     Nasabah
                                 </div>
                                 <div class="card-body" style="font-size: 15px">
@@ -51,7 +51,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="card">
-                                <div class="card-header fs-5">
+                                <div class="card-header bg-primary text-white fw-bold fs-5">
                                     Transaksi
                                 </div>
                                 <div class="card-body" style="font-size: 15px">
@@ -62,19 +62,27 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    Request Topup
-                </div>
-                <div class="card-body">
-                @foreach($request_topup as $transaksi)
-                    {{ $transaksi->credit }}
-                    <form action="{{ route('acceptRequest') }}" method="POST">
-                @csrf
-                    <input type="hidden" name="id" id="id" value="{{ $transaksi->id }}">
-                    <button type="submit" class="btn btn-primary">SETUJU</button>
-                </form>
-                @endforeach
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white fw-bold fs-5">
+                        Request Topup
+                    </div>
+                    <div class="card-body">
+                    @foreach($request_topup as $transaksi)
+                        {{ $transaksi->credit }}
+                        <form action="{{ route('acceptRequest') }}" method="POST">
+                        @csrf
+                            <div class="row">
+                                <div class="col d-flex justify-content-start align-items-center">
+                                    <input type="hidden" name="id" id="id" value="{{ $transaksi->id }}">
+                                </div>
+                                <div class="col d-flex justify-content-end align-items-center">
+                                    <button type="submit" class="btn btn-primary">SETUJU</button>
+                                </div>
+                            </div>
+                        </form>
+                    @endforeach
+                    </div>
                 </div>
             </div>
         </div>

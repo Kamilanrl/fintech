@@ -63,31 +63,31 @@ class FirstSeeder extends Seeder
         ]);
 
         Product::create([
-            'name'=>'Lemon Ice Tea',
+            'name'=>'Es Teh',
             'price'=>'5000',
             'stock'=>100,
             'photo'=>'duhbvfdbvdfbv',
-            'description'=>'Es Lemon',
+            'description'=>'Es Teh',
             'category_id'=>1,
             'stand'=>2
         ]);
 
         Product::create([
-            'name'=>'Meat Ball',
+            'name'=>'Ayam Bakar',
             'price'=>'10000',
             'stock'=>50,
             'photo'=>'djgbjdfjdfgj',
-            'description'=>'Bakso',
+            'description'=>'Ayam Bakar',
             'category_id'=>2,
             'stand'=>1
         ]);
 
         Product::create([
-            'name'=>'Risoles',
+            'name'=>'Nasi Goreng',
             'price'=>'3000',
             'stock'=>50,
             'photo'=>'duhbvfdbvdfbv',
-            'description'=>'Risol',
+            'description'=>'Nasi Goreng',
             'category_id'=>3,
             'stand'=>1
         ]);
